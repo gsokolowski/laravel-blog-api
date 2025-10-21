@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie', 'login'], //login route comes from Fortify
+    'paths' => ['api/*', 'sanctum/csrf-cookie', 'login'], //adding login route which omes from Fortify
 
     'allowed_methods' => ['*'],
 
@@ -29,6 +29,7 @@ return [
 
     'max_age' => 0,
 
-    'supports_credentials' => true, // changed from false
+     // you should ensure that your application's CORS configuration is returning the Access-Control-Allow-Credentials header with a value of true.
+    'supports_credentials' => true, 
 
 ];

@@ -101,7 +101,7 @@ return [
     |
     */
 
-    'middleware' => ['api'],
+    'middleware' => ['api'], //default is web but we have SPA and we will ues API middlewear
 
     /*
     |--------------------------------------------------------------------------
@@ -130,6 +130,7 @@ return [
     |
     */
 
+    // By default, Fortify defines routes that are intended to return views, such as a login screen or registration screen. However, if you are building a JavaScript driven single-page application, you may not need these routes. For that reason, you may disable these routes entirely by setting the views configuration value within your application's config/fortify.php configuration file to false:
     'views' => false,
 
     /*

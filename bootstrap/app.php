@@ -11,7 +11,8 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->statefulApi(); // sanctrum configuration
+        // Next, you should instruct Laravel that incoming requests from your SPA can authenticate using Laravel's session cookies, while still allowing requests from third parties or mobile applications to authenticate using API tokens. This can be easily accomplished by invoking the statefulApi middleware method 
+        $middleware->statefulApi(); // sanctrum configuration frontend reuest will come here
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
