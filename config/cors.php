@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie', 'login'], //adding login route which omes from Fortify
+    'paths' => ['api/*', 'sanctum/csrf-cookie', 'login'], //adding login route which comes from Fortify
 
     'allowed_methods' => ['*'],
 

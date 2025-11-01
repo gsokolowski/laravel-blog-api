@@ -101,7 +101,7 @@ return [
     |
     */
 
-    'middleware' => ['api'], //default is web but we have SPA and we will ues API middlewear
+    'middleware' => ['web'], //default is web but we have SPA and we will ues API middlewear
 
     /*
     |--------------------------------------------------------------------------
