@@ -10,7 +10,7 @@ class PostController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(PostRequest $request)
+    public function store(PostRequest $request)
     {
         $post = Post::create($request->validated());
 
