@@ -15,6 +15,17 @@ Route::get('/user', function (Request $request) {
 
 // sanctum protected routes
 Route::middleware('auth:sanctum')->group(function () {
-    Route::resource('posts', PostController::class);
+    // Generate all of the routes
+    //Route::resource('posts', PostController::class);
+
+    // Store a new post (store)
+    Route::post('/posts', [PostController::class, 'store']);
+
+    // Get all posts (index)
+    Route::get('/posts', [PostController::class, 'index']);    
+    
+    // Route::get('/posts/{post}', [PostController::class, 'show']);
+    // Route::put('/posts/{post}', [PostController::class, 'update']);
+    // Route::delete('/posts/{post}', [PostController::class, 'destroy']);
 
 });

@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
     /**
      * Handle the incoming request.
      */
+    //POST api/posts
     public function store(PostRequest $request)
     {
         $post = Post::create($request->validated());
@@ -20,4 +22,25 @@ class PostController extends Controller
             'data' => $post
         ], 201); // 201 = Created
     }
+
+    /**
+     * Display a listing of the posts.
+     */
+    //GET api/posts
+    public function index()
+    {
+        // Fetch posts ordered by latest first and paginate
+        //$posts = Post::latest()->simplePaginate(10); // you can change '10' to desired per-page count
+        //$posts = Post::orderBy('created_at','desc')->simplePaginate(10);
+        //$posts = DB::table('posts')->orderBy('created_at','desc')->simplePaginate(10);
+        $posts = DB::table('posts')->orderByDesc('created_at')->simplePaginate(10);
+        
+        // Return paginated posts as JSON
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Posts retrieved successfully.',
+            'posts' => $posts
+        ]);
+    }
+
 }
