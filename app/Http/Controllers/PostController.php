@@ -30,10 +30,10 @@ class PostController extends Controller
     public function index()
     {
         // Fetch posts ordered by latest first and paginate
-        //$posts = Post::latest()->simplePaginate(10); // you can change '10' to desired per-page count
-        //$posts = Post::orderBy('created_at','desc')->simplePaginate(10);
-        //$posts = DB::table('posts')->orderBy('created_at','desc')->simplePaginate(10);
-        $posts = DB::table('posts')->orderByDesc('created_at')->simplePaginate(10);
+        //$posts = Post::latest()->simplePaginate(5); // you can change '10' to desired per-page count
+        //$posts = Post::orderBy('created_at','desc')->simplePaginate(5);
+        //$posts = DB::table('posts')->orderBy('created_at','desc')->simplePaginate(5);
+        $posts = DB::table('posts')->orderByDesc('created_at')->simplePaginate(5);
         
         // Return paginated posts as JSON
         return response()->json([
