@@ -24,8 +24,12 @@ Route::middleware('auth:sanctum')->group(function () {
     // Get all posts (index)
     Route::get('/posts', [PostController::class, 'index']);    
     
+    // Put for updating post
+    Route::put('/posts/{post}', [PostController::class, 'update']);
+
+    // Delete post 
+    Route::delete('/posts/{post}', [PostController::class, 'destroy']);
+
     // Route::get('/posts/{post}', [PostController::class, 'show']);
-    // Route::put('/posts/{post}', [PostController::class, 'update']);
-    // Route::delete('/posts/{post}', [PostController::class, 'destroy']);
 
 });
