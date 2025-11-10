@@ -203,4 +203,27 @@ class PostController extends Controller
     // }
 
 
+    // GET /api/posts/{post} - SHOW single post  with Automatic model binding
+    public function show(Post $post)
+    {
+        return response()->json([
+            'post' => $post
+        ], 200);
+    }
+
+    // GET /api/posts/{id}  SHOW single post Eloquent only
+    // public function show($id)
+    // {
+    //     $post = Post::find($id);
+
+    //     if (!$post) {
+    //         return response()->json([
+    //             'message' => 'Post not found'
+    //         ], 404);
+    //     }
+
+    //     return response()->json([
+    //         'post' => $post
+    //     ], 200);
+    // }
 }
