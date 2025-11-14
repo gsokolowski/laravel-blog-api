@@ -22,13 +22,13 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/posts', [PostController::class, 'store']);
 
     // Get all posts (index)
-    Route::get('/posts', [PostController::class, 'index']);    
+    Route::get('/posts', [PostController::class, 'index'])->withoutMiddleware('auth:sanctum');    
     
     // Put for updating post
     Route::put('/posts/{post}', [PostController::class, 'update']);
 
     // Show post
-    Route::get('/posts/{post}', [PostController::class, 'show']);
+    Route::get('/posts/{post}', [PostController::class, 'show'])->withoutMiddleware('auth:sanctum');
 
     // Delete post 
     Route::delete('/posts/{post}', [PostController::class, 'destroy']);

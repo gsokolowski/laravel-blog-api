@@ -53,8 +53,10 @@ class PostController extends Controller
     {
         // Fetch posts ordered by latest first and paginate
         // Eloquent version
-        $posts = Post::orderBy('created_at','desc')->simplePaginate(5);
-        
+        // $posts = Post::orderBy('created_at','desc')->simplePaginate(5);
+
+        $posts = Post::select('id','title','created_at')->orderBy('created_at','desc')->simplePaginate(5);
+
         // Query builder version
         // $posts = DB::table('posts')->orderByDesc('created_at')->simplePaginate(5);
 
